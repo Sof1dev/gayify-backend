@@ -1,0 +1,15 @@
+{
+  "name": "gayify-backend",
+  "version": "1.0.0",
+  "main": "./index.js",
+  "type": "module",
+  "scripts": {
+    "prebuild": "rm -rf dist",
+    "build": "mkdir dist && cp src/index.js dist/",
+    "postbuild": "cd dist && mkdir flags && cp -r ../flags/* ./flags/ && cp -r ../node_modules/ ./node_modules && find . -type f \\( -name '*.js' -o -name '*.webp' \\) -o -path './node_modules' -o -path './flags' | zip index.zip -@ && rm -rf ./node_modules"
+  },
+  "dependencies": {
+    "hono": "^4.4.4",
+    "sharp": "^0.33.4"
+  }
+}
